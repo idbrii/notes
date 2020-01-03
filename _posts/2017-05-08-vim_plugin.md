@@ -3,6 +3,9 @@ layout: post
 title: Writing a vim plugin
 ---
 
+If you're writing a vim plugin, there are some things you should know and some
+tricks you can benefit from. I collect mine here.
+
 *I assume your plugin is named wubwub. Replace as appropriate.*
 
 # Writing a plugin in vimscript

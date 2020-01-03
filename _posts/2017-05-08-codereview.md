@@ -3,7 +3,9 @@ layout: post
 title: David's Code Review Checklist
 ---
 
-These are common points I'll raise in a code review.
+These are common points I'll raise in a code review. Going through this list is
+a good way to do the review yourself. It's also a useful place for me to
+copy-paste review notes.
 
 ## Design
 
