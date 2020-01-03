@@ -12,7 +12,8 @@ author: David
 description: Thoughts I deemed interesting enough to preserve.
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://avatars0.githubusercontent.com/u/43559?s=140&v=4
+# Seems like it must be local (possibly due to baseurl).
+avatar: img/avatar.png
 
 #
 # Flags below are optional
