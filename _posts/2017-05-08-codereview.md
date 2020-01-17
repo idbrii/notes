@@ -1,6 +1,8 @@
 ---
 layout: post
 title: David's Code Review Checklist
+categories: [code, gamedev]
+
 ---
 
 These are common points I'll raise in a code review. Going through this list is

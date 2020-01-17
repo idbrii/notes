@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Thoughts on Vim emulation in Chrome
+categories: [vim]
+
 ---
 
 I tried out three vi emulator extensions and these are my notes.

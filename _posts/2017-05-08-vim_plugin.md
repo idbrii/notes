@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Writing a vim plugin
+categories: [vim]
+
 ---
 
 If you're writing a vim plugin, there are some things you should know and some
