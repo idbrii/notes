@@ -13,7 +13,7 @@ description: Thoughts I deemed interesting enough to preserve.
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 # Seems like it must be local (possibly due to baseurl).
-avatar: img/avatar.png
+avatar: /img/avatar.png
 
 #
 # Flags below are optional
