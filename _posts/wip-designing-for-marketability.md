@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Designing for Marketability
-categories: [gamedev]
+categories: [gamedev, biz]
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Learning from others: making a better pitch
-categories: [gamedev]
+categories: [gamedev, biz]
 
 ---
 
