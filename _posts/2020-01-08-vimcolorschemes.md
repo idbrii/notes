@@ -18,7 +18,9 @@ them together. First, you'll need to understand the syntax items you're looking
 at. Use this (if you have a fancy statusline, turn it off with `:AirlineToggle`
 or equivalent):
 
-    :let &statusline = 'ascii:%-3b hex:%2B %{PrintNumSelected()} %= syntax<%{synIDattr(synID(line("."),col("."),1),"name")}> color<%{synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")}> %l,%c%V %P '
+```vim
+:let &statusline = 'ascii:%-3b hex:%2B %{PrintNumSelected()} %= syntax<%{synIDattr(synID(line("."),col("."),1),"name")}> color<%{synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")}> %l,%c%V %P '
+```
 
 Now you'll see 'syntax' and 'color' in the bottom right of your statusline.
 'syntax' is the name your syntax uses for the token under the cursor (defined
@@ -27,11 +29,15 @@ in `syntax/c.vim`) and 'color' is what colour to select from the colorscheme
 
 Put your cursor on the word `int` in a C++ file and you'll see something like:
 
-    syntax<cType> color<Type>
+```
+syntax<cType> color<Type>
+```
 
 In your colorscheme you'll see code like this:
 
-    hi Type	guifg=darkkhaki
+```vim
+hi Type    guifg=darkkhaki
+```
 
 That tells vim to use 'darkkhaki' to colour that `int` keyword. 'darkkhaki' is
 an X11 colour name, but you could use the hex code instead: `guifg=#bdb76b`.
@@ -41,21 +47,27 @@ an X11 colour name, but you could use the hex code instead: `guifg=#bdb76b`.
 
 Colorschemes are mostly comprised of `:highlight` commands like these:
 
-    highlight Search guifg=SkyBlue guibg=grey10 gui=none
-    highlight Search ctermfg=grey ctermbg=blue cterm=bold,underline
+```vim
+highlight Search guifg=SkyBlue guibg=grey10 gui=none
+highlight Search ctermfg=grey ctermbg=blue cterm=bold,underline
+```
 
 Arguments usually prefixed with 'gui' are for gvim and with 'cterm' for vim in
 colour terminals (for more, see `:help highlight-args`).
 
 Keep in mind that `:highlight` *adds* to the highlight definition. So if you do:
 
-    hi IncSearch	guifg=grey10 guibg=SkyBlue
+```vim
+hi IncSearch    guifg=grey10 guibg=SkyBlue
+```
 
 you'll have a blue foreground and grey background because IncSearch has
 `gui=reverse` by default. Instead, you'll need to explicitly clear the
 highlight-args:
 
-    hi IncSearch	guifg=grey10 guibg=SkyBlue gui=none
+```vim
+hi IncSearch    guifg=grey10 guibg=SkyBlue gui=none
+```
 
 
 # Writing a colorscheme with broad support
