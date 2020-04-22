@@ -6,17 +6,17 @@ categories: [vim]
 ---
 
 If you're writing a vim plugin, there are some things you should know and some
-tricks you can benefit from. I collect mine here.
+tricks you can benefit from. I collect my fundamentals here.
 
 *I assume your plugin is named wubwub. Replace as appropriate.*
 
 # Writing a plugin in vimscript
 
-* Write your API in wubwub/plugin/wubwub.vim and wubwub/ftplugin/wubwub.vim as appropriate
- * `plugin` for plugins that affect all buffers
- * `ftplugin` for plugins that affect specific filetypes
-* Write your code in wubwub/autoload/wubwub.vim
-* Put a load guard in your API files to prevent reloading:
+* Write your API in `wubwub/plugin/wubwub.vim` and `wubwub/ftplugin/wubwub.vim` as appropriate:
+  * `plugin/` for plugins that apply to all buffers (global plugins)
+  * `ftplugin/` for plugins that apply to specific filetypes (ftplugins)
+* Write the bulk of your code in `wubwub/autoload/wubwub.vim`
+* Put a load guard in your global API files to prevent reloading and allow users to disable:
 
 ```vim
 if exists('loaded_wubwub') || &cp || version < 700
@@ -24,15 +24,17 @@ if exists('loaded_wubwub') || &cp || version < 700
 endif
 let loaded_wubwub = 1
 ```
-
-* Sometimes you want code to be loaded multiple times in an ftplugin (like buffer/window-local options or mappings), but for commands and global mappings you do not.
+* A few notes about load guards:
+  * Your load guard is also a good place to check for vim features you require: `!has('timers') || !exists('*json_encode') || !has('patch-8.1.1517')`. [helpful.vim](https://github.com/tweekmonster/helpful.vim) can help you find the patch version a command was added if it's not in `:help +feature-list` or detectable with `exists`.
+  * A user can use `let loaded_wubwub = 0` to temporarily or conditionally prevent your plugin from loading.
+  * However, you often want code to be loaded multiple times in an ftplugin since many things only apply to the current buffer like buffer/window-local options (`:help :setlocal`), mappings (`:help :map-<buffer>`), or commands (`:help :command-buffer`). But for functions, put them in autoload to avoid redefinition.
 
 
 # Writing a plugin in python
 
 ## Where do I put my python code?
 
-Vim will include python2, python3, or pythonx directories in your python path.
+Vim will include `python2/`, `python3/`, or `pythonx/` directories in your python path.
 
 ```sh
 mkdir -p ~/.vim/bundle/wubwub/pythonx
@@ -41,9 +43,9 @@ gvim +"pyx import hello"
 ```
 
 
-## Where do I put configuration?
+## Where do users put configuration?
 
-In your vimrc.
+Let users store configuration in their vimrc. It's easy for you to access globals in python:
 
 ```sh
 echo "let g:wubwub_name = 'idbrii'" >> ~/.vimrc
@@ -54,10 +56,12 @@ EOF
 gvim +"pyx import hello"
 ```
 
-You might be tempted to use configparser, but that's not a vim-friendly way of configuring since people can't just configure from their pre-existing config files. Also, you have to figure out where on disk the config file should be located!
+You might be tempted to use `configparser`, but that's not a vim-friendly way of configuring since people can't just configure from their pre-existing config files. Also, you would have to figure out where on disk the config file should be located!
+
+Using vim variables for configuration is much more user-friendly.
 
 
-## How can I create commands that pass data to python?
+## How can I pass user arguments to python?
 
 This is the trickiest part.
 
@@ -69,10 +73,10 @@ import vim
 def f(text):
     print(text +' woohoo')
 EOF
-gvim +"pyx import hello" +"execute 'pyx hello.f(\" '. g:wubwub_name .' \")'"
+gvim +"pyx import hello" +"execute printf('pyx hello.f(\"%s\")', g:wubwub_name)"
 ```
 
-That's pretty awkward. I don't know the best way to call python functions with arguments. It's probably best to try to make your interface as tight as possible and only pass args when necessary.
+That's pretty awkward. It's even more awkward if your argument may contain quotes! We can avoid the eval-like use by stuffing our args into a global.
 
 ```python
 # ~/.vim/bundle/wubwub/pythonx/hello.py
@@ -86,7 +90,7 @@ def action_api():
 ```
 
 ```vim
-# ~/.vim/bundle/wubwub/plugin/hello.vim
+" ~/.vim/bundle/wubwub/plugin/hello.vim
 function! Action(...)
     let g:wubwub_args = a:000
     python import hello
@@ -104,6 +108,14 @@ That's pretty awkward. It's even more awkward if your argument may contain quote
 If you know any good python plugins that provide commands, you should have a look at how they work (I can't think of any).
 
 
+## How can I get data from python?
+
+Fortunately this is easy: pass them in global variables.
+
+```python
+vim.vars["wubwub_statusline"] = get_statusline()
+```
+
 ## How do I ...
 
 Try reading through *all* of `:help if_pyth`.
@@ -115,7 +127,9 @@ You could use [snake](https://github.com/amoffat/snake) to make pythonic vim plu
 
 # Creating mappings for your plugin
 
-## Exposing your mappings in a user-friendly way
+## Give power to the people
+
+Let your users control whether mappings are defined and help them define their own.
 
 * Always wrap mappings in regular buffers with `no_plugin_maps` and `wubwub_no_mappings`:
 
