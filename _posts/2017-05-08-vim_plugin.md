@@ -18,10 +18,12 @@ tricks you can benefit from. I collect mine here.
 * Write your code in wubwub/autoload/wubwub.vim
 * Put a load guard in your API files to prevent reloading:
 
-    if exists('loaded_wubwub') || &cp || version < 700
-        finish
-    endif
-    let loaded_wubwub = 1
+```vim
+if exists('loaded_wubwub') || &cp || version < 700
+    finish
+endif
+let loaded_wubwub = 1
+```
 
 * Sometimes you want code to be loaded multiple times in an ftplugin (like buffer/window-local options or mappings), but for commands and global mappings you do not.
 
@@ -32,21 +34,25 @@ tricks you can benefit from. I collect mine here.
 
 Vim will include python2, python3, or pythonx directories in your python path.
 
-    mkdir -p ~/.vim/bundle/wubwub/pythonx
-    echo "print 'hi there'" > ~/.vim/bundle/wubwub/pythonx/hello.py
-    gvim +"py import hello"
+```sh
+mkdir -p ~/.vim/bundle/wubwub/pythonx
+echo "print('hi there')" > ~/.vim/bundle/wubwub/pythonx/hello.py
+gvim +"pyx import hello"
+```
 
 
 ## Where do I put configuration?
 
 In your vimrc.
 
-    echo "let g:wubwub_name = 'idbrii'" >> ~/.vimrc
-    cat << EOF > ~/.vim/bundle/wubwub/pythonx/hello.py
-    import vim
-    print vim.vars["wubwub_name"]
-    EOF
-    gvim +"py import hello"
+```sh
+echo "let g:wubwub_name = 'idbrii'" >> ~/.vimrc
+cat << EOF > ~/.vim/bundle/wubwub/pythonx/hello.py
+import vim
+print(vim.vars["wubwub_name"])
+EOF
+gvim +"pyx import hello"
+```
 
 You might be tempted to use configparser, but that's not a vim-friendly way of configuring since people can't just configure from their pre-existing config files. Also, you have to figure out where on disk the config file should be located!
 
@@ -57,33 +63,43 @@ This is the trickiest part.
 
 At the first level, we can create a function that takes an argument.
 
-    cat << EOF > ~/.vim/bundle/wubwub/pythonx/hello.py
-    import vim
-    def f(text):
-        print text +' woohoo'
-    EOF
-    gvim +"py import hello" +"execute 'py hello.f(\" '. g:wubwub_name .' \")'"
+```sh
+cat << EOF > ~/.vim/bundle/wubwub/pythonx/hello.py
+import vim
+def f(text):
+    print(text +' woohoo')
+EOF
+gvim +"pyx import hello" +"execute 'pyx hello.f(\" '. g:wubwub_name .' \")'"
+```
 
 That's pretty awkward. I don't know the best way to call python functions with arguments. It's probably best to try to make your interface as tight as possible and only pass args when necessary.
 
-    # ~/.vim/bundle/wubwub/pythonx/hello.py
-    def action(args):
-        for a in args:
-			print a
+```python
+# ~/.vim/bundle/wubwub/pythonx/hello.py
+def action(args):
+    for a in args:
+        print(a)
 
-    def action_api():
-        args = vim.vars["wubwub_args"]
-        action(args)
+def action_api():
+    args = vim.vars["wubwub_args"]
+    action(args)
+```
 
-    # ~/.vim/bundle/wubwub/plugin/hello.vim
-    function! Action(...)
-        let g:wubwub_args = a:000
-        python import hello
-        python hello.action_api()
-    endfunction
-    command! -nargs=* Action call Action(<f-args>)
+```vim
+# ~/.vim/bundle/wubwub/plugin/hello.vim
+function! Action(...)
+    let g:wubwub_args = a:000
+    python import hello
+    python hello.action_api()
+endfunction
+command! -nargs=* Action call Action(<f-args>)
+```
 
-    gvim +"py import hello" +"Action do some stuff"
+```sh
+gvim +"pyx import hello" +"Action do some stuff"
+```
+
+That's pretty awkward. It's even more awkward if your argument may contain quotes! I don't know the best way to call python functions with arguments. It's probably best to try to make your interface as tight as possible and only pass args when necessary.
 
 If you know any good python plugins that provide commands, you should have a look at how they work (I can't think of any).
 
@@ -103,8 +119,10 @@ You could use [snake](https://github.com/amoffat/snake) to make pythonic vim plu
 
 * Always wrap mappings in regular buffers with `no_plugin_maps` and `wubwub_no_mappings`:
 
-	if (! exists("no_plugin_maps") || ! no_plugin_maps) &&
-            \ (! exists("g:wubwub_no_mappings") || ! g:wubwub_no_mappings)
+```vim
+if (! exists("no_plugin_maps") || ! no_plugin_maps) &&
+        \ (! exists("g:wubwub_no_mappings") || ! g:wubwub_no_mappings)
+```
 
  * This doesn't include special buffers that don't have editable text (like the Gstatus and Gblame buffers in fugitive).
  * These options make it easier for users who prefer to have complete control over their mappings.
@@ -118,26 +136,38 @@ You could use [snake](https://github.com/amoffat/snake) to make pythonic vim plu
 
 Visual mode maps to ex commands will automatically have the line numbers for the visual selection applied. These prepended markers undesirable when using another method to get the visual selection (`normal! gv` inside a function, `<line1>` and `<line2>`, etc). You can prefix ex commands with `<C-u>` to clear out the range:
 
-    :xnoremap % :<C-u>call Percent_nextline()<CR>
+```vim
+:xnoremap % :<C-u>call Percent_nextline()<CR>
+```
 
 Doing so will make your map run like this:
 
-    :call Percent_nextline()<CR>
+```vim
+:call Percent_nextline()<CR>
+```
 
 Instead of this:
 
-    :'<,'>call Percent_nextline()<CR>
+```vim
+:'<,'>call Percent_nextline()<CR>
+```
 
 Similarly, normal mode maps to ex commands will have line numbers for the count applied. If you're using another method to get the count (`v:count`) or want to ignore the count, then use `<C-u>`:
 
-    :nnoremap % :<C-u>call Percent_nextline()<CR>
+```vim
+:nnoremap % :<C-u>call Percent_nextline()<CR>
+```
 
 Doing so will make your map run like this:
 
-    :call Percent_nextline()<CR>
+```vim
+:call Percent_nextline()<CR>
+```
 
 Instead of this:
 
-    :.,.+4call Percent_nextline()<CR>
+```vim
+:.,.+4call Percent_nextline()<CR>
+```
 
 ([ref](http://vi.stackexchange.com/questions/4037/is-there-any-point-in-using-c-u-in-an-nmap))
