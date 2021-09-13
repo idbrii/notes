@@ -97,3 +97,14 @@ and he talks more about using noise for your shake, goes into rotational shake,
 and describes a better way to think about how much shake to apply (trauma).
 There's also other camera techniques in the talk (smooth motion, framing,
 split-screen).
+
+
+### Update (2021-09-13)
+
+For shakes caused by constant disturbance rather than individual impacts, you
+could use Jonny Morrill's method of [interpolating between random amplitudes
+with decay](
+https://jonny.morrill.me/en/blog/gamedev-how-to-implement-a-camera-shake-effect/)
+which works kind of like a spring but uses random values for its amplitudes but
+is still continuous. The result looks like a rumble or earthquake.
+
