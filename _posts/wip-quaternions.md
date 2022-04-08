@@ -106,6 +106,29 @@ Exponents multip
 >         8. q^x does rotation q but x times (ie q^3 does rotation q 3 times)
 >         9. rqr-1 rotates the rotation axis of
 
+# Uses
+
+## [Use the conjugate](https://www.reddit.com/r/gamedev/comments/np27gy/rotations_using_quaternions/h059sj0/) to change a quaternion into a new reference frame
+ 
+> Suppose you have a spaceship at an arbitrary orientation represented by a
+> quaternion q, which is the rotation from some "unrotated" convention,
+> typically, pointing down one of the axes, with "up" being define as one of
+> the other axes.
+> 
+> Say you want to yaw that spaceship 5 degrees left. So you construct a
+> quaternion to yaw 5 degrees left from the "unrotated" orientation (this is
+> generally trivial to do.)
+> 
+> Then you want to convert this quaternion into the orientation of the ship, so
+> you can apply it to the ship's orientation to yaw it 5 degrees left.
+> 
+> So pass your 5 degrees left from unrotated quaternion in as "rotation", use
+> the ship's current orientation quaternion as "new_coord_system", and "qo"
+> will be output that is your 5 degrees left yaw relative to the ship's
+> orientation.
+
+** TODO: Their implementation of conjugate doesn't match what I've seen elsewhere.
+
 Some other resources from most to least helpful (for me):
 
 * [quaternions.online](https://quaternions.online/) -- enter quaternion values and see them represented in 3D and as Euler angles. Helpful to explore a bit and maybe for debugging (you could copypaste values from Unity inspector to see what the rotation means).
