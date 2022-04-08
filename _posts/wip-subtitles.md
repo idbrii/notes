@@ -46,3 +46,5 @@ Notice that each line has a clear scene for context, line number for ordering, a
 For dialogue, I have another system with a ScriptableObject that aggregates the strings for a scene with their timing. (Using hierarchical ids makes it easier to automatically pull in all strings for a scene.) It can also import/export to [SRT format](https://github.com/AlexPoint/SubtitlesParser) because I use Youtube to help auto-set timings for my subtitles ([with a SRB->SRT converter](https://gidsgoldberg.com/sbv_docs_converter.shtml)). I use coroutines to wait for fmod to hit the timestamp and then display the next subtitle. I never WaitForSeconds longer than 10% of the time until the next line in case fmod skips around in the timeline -- this happens to me when other stuff is loading.
 
 You need to think about that before sending strings off to translation because you want to cut up sentences into fragments that you display to avoid spoiling jokes and presenting too much text at once. 
+
+Video showcasing various good and bad examples of subtitles in games: [Making Games Better for the Deaf and Hard of Hearing](https://www.youtube.com/watch?v=4NGe4dzlukc).
