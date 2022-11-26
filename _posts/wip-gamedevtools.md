@@ -89,6 +89,8 @@ Most desirable elements first (I've actually already built some of these, but wo
 
 * A programmatic UI library for Unity. (Some compromise between their designer-driven approach of building UI prefabs in the inspector vs. the easier to debug and re-use programmer approach of defining functions to make re-usable UI elements.)
 
+* Performance test and analysis. Users instrument code sections and specify CPU millisecond budgets for those sections. It runs tests, captures profile, and attributes budget expenditures to authors by cross-referencing profile with changed files. Must issue warnings for both over budget and massively under budget (often means something accidentally disabled). Should provide a chart to compare average CPU usage across test runs (commit ranges).
+
 
 # Building/packaging
 
