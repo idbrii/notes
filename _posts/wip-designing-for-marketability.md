@@ -5,6 +5,7 @@ categories: [gamedev, biz]
 
 ---
 
+TODO: merge with wip-gamedesign-for-market.md
 
 
 You may have heard of The Clark Tank (discussions of game marketability from the
@@ -66,3 +67,10 @@ you're designing:
 > violate them do it on purpose and have an alternative that solves the same
 > problem.
 
+
+# Read More
+
+* [How to Consistently Make Profitable Indie Games](https://youtu.be/LlAc5sBtGkc)
+* [How To Market Your Indie Game: A 10 Step Plan](https://howtomarketagame.com/2021/07/12/how-to-market-your-indie-game-a-10-step-plan) (step #1 is: Make the type of game that Steam players want)
+* [How I Do Competitive Analysis For My Game](https://howtomarketagame.com/2019/12/11/how-i-do-competitive-analysis-for-my-game)
+* [Here's How I Did Market Research For My Next Game](https://www.reddit.com/r/gamedev/comments/t9lhjw/heres_how_i_did_market_research_for_my_next_game)
