@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Contacting Games Press
-categories: [gamedev, bizdev]
+categories: [gamedev, biz]
 
 ---
+
+Over the years, I've found these suggestions for how to get your game noticed.
 
 Check out [Games Press](https://www.gamespress.com/nl/About-Games-Press) for
 posting press releases. Make sure you have a presskit so interested journalists
@@ -19,7 +21,7 @@ If you follow any industry news or gaming websites, then you should keep track
 of which people like games *similar* to yours so you can contact them directly
 about your game since they're more likely to be interested.
 
-Probably worth checking out something like
+Check out something like
 [presskit.html](https://pixelnest.io/products/presskit.html/). It's like the
 old presskit(), but as a static site so you can host for free as Github Pages
 or any other hosting site.

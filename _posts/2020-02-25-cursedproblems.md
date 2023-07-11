@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Talk\: Cursed Problems in Gamedev
+title: Cursed Problems in Gamedev (Talk)
 categories: [gamedev, techtalk]
 
 ---

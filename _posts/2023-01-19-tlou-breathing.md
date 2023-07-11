@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Audio\: The Last Of Us Part II’s Breathing System
+title: The Last Of Us Part II’s Breathing Audio System
 categories: [audio, gamedev]
 
 ---

@@ -1,11 +1,14 @@
 ---
 layout: post
-title: Tomorrow Corporation's engine: time travel, reverse stepping with data breakpoints, scm integration
-categories: [code, gamedev]
+title: Thinking About Sliding Puzzles
+categories: [design, gamedev]
 
 ---
 
-Not quite a list of sliding puzzles, but [giantbomb's block puzzle concept](https://www.giantbomb.com/block-puzzle/3015-362/) has a big list.
+Thinking about the prevalence of sliding block puzzles. Not quite a list of
+sliding puzzles, but [Giant Bomb's block puzzle
+concept](https://www.giantbomb.com/block-puzzle/3015-362/) has a big list that
+shows that this concept is common.
 
 I think the reason these puzzles exist in many games is because either:
 

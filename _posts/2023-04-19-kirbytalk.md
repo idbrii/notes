@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Kirby: 2D Gameplay Ideas in a 3D World
+title: Kirby's 2D Gameplay Ideas in a 3D World (Talk)
 categories: [gamedev, techtalk]
 
 ---

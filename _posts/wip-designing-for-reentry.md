@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Designing for Re-entry: Getting players back into the game
+title: Designing for Re-entry and Getting Players Back Into the Game
 categories: [gamedev, design]
 
 ---
