@@ -5,6 +5,10 @@ categories: [gamedev, code]
 
 ---
 
+Someone asked me about what I'd want in a bug reporting system, so I compiled
+those thoughts here. I've written parts of these systems myself and certainly
+used them a lot, so hopefully this is a decent spec.
+
 Basic requirements for a bug reporting system:
 
 * Capture screenshot, machine info, in-game location, user-provided category, log, user data (arbitrary function returning a string), and upload to a server. Ideally I have the option of running my own instance of that server.
@@ -17,7 +21,7 @@ For a general system, it's important to think about how different games have dif
 * lots of worldgen makes some kinds of data (location) useless.
 * static world makes other data (location) very useful.
 * logs may be enormous (GB) and full of useless garbage. useful info is usually at beginning and end, but sometimes in the middle (followed by spam caused by the error).
-* iOS has limited ability to access log files so a log buffer may be useful. (was for us)
+* iOS has limited ability to access log files so a log buffer may be useful (was for us). Create a circular buffer and add each log print so they're in memory.
 * some platforms already have bug reporter that may access data that you cannot (like crash dumps) -- how to get those into your system too.
 
 # What data should it upload?
