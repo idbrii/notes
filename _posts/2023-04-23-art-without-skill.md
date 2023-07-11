@@ -5,6 +5,10 @@ categories: [visuals, gamedev]
 
 ---
 
+New game makers often ask how they can make good-looking games when they don't
+have any art skills. There's lots of advice out there on how to get better at
+art, but here's some ideas on making simple art that looks good.
+
 For really basic art, [How to Make Your Game Look Good if You're Not a Good Artist](https://www.youtube.com/watch?v=xMgNBP8yJeU) from Miziziziz is a good video overview.
 
 
