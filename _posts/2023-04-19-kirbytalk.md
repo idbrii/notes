@@ -5,11 +5,10 @@ categories: [gamedev, techtalk]
 
 ---
 
-# [Kirby and the Forgotten Land: The designers discuss how they brought traditional Kirby gameplay into a 3D world](https://www.youtube.com/watch?v=cWdt07ncRxU)
-
-[Posted on r/TheMakingOfGames](https://www.reddit.com/r/TheMakingOfGames/comments/12pnwol/kirby_and_the_forgotten_land_the_designers/)
-
-Kamiyama's section was great. Here's some major points.
+[Kirby and the Forgotten Land: The designers discuss how they brought
+traditional Kirby gameplay into a 3D
+world](https://www.youtube.com/watch?v=cWdt07ncRxU). Kamiyama's section of this
+talk was great. Here's some major points with timestamps.
 
 A main point of the talk was designing for anyone. Since they're making a 3D game, many issues arise from how to make things intuitive in the camera angles and movement freedom that 3D brings.
 
@@ -39,3 +38,4 @@ Kirby can fly so players will want to explore out of bounds. Solution: hint boun
 * Radially project from desired camera focus point to find camera boundaries and smoothly adjust the actual focal point. (Gotta watch because the explanation is not very technical.)
 
 
+[Posted on r/TheMakingOfGames](https://www.reddit.com/r/TheMakingOfGames/comments/12pnwol/kirby_and_the_forgotten_land_the_designers/)
