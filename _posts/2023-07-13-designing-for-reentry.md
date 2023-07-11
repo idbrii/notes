@@ -1,32 +1,46 @@
 ---
 layout: post
-title: Designing for Re-entry and Getting Players Back Into the Game
+title: Designing for re-entry to get players back into the game
 categories: [gamedev, design]
 
 ---
 
-I saw this [thread about let's plays and long games](https://www.reddit.com/r/gamedev/comments/8sjaur/developers_say_twitch_and_lets_plays_are_hurting/e102a7d/), and I wanted to write about some specific solutions.
+I saw this [thread about let's plays and long
+games](https://www.reddit.com/r/gamedev/comments/8sjaur/developers_say_twitch_and_lets_plays_are_hurting/e102a7d/),
+and I wanted to write about some specific solutions we can implement to help
+players who are short on time but still want to enjoy long games.
 
 
 # Problem
 
 People with small amounts of spare time have a hard time getting back to long
 narrative games. Games tend to be designed to be a single long experience and
-often have few affordances to redoing their onboarding.
+often have few affordances to redoing their onboarding. (You give the tutorial
+at the start of the game and don't retrigger it again.)
 
-Lets explore some ideas for improving the "haven't played in a month" player experience.
+Let's explore some ideas for improving the "haven't played in a month" player experience.
 
 # Successful examples
 
-* the [Previously on Alan Wake](https://www.youtube.com/watch?v=dCfUE5wBkE0) is effective: it summarizes what happened before and the character's current motivations and it's good opportunity for character-building. You get one between each chapter which makes them a great stopping point. (This is very expensive and needs to be integral to the game.)
+* the [Previously on Alan Wake](https://www.youtube.com/watch?v=dCfUE5wBkE0) segments are effective: they summarize what happened before, the character's current motivations, and they're good opportunity for character-building. You get one Previously On segment between each chapter which makes them a great stopping point. (This is very expensive and needs to be integral to the game.)
+
+![Previously on Alan Wake](https://github.com/idbrii/notes/assets/43559/b3d0bb45-6f31-458d-9b83-3e742ba2a1ac)
 
 * [Deus Ex: HR's loading screens](https://youtu.be/dwZsXHCCfs4?t=19s) summarize where you are in the quest (with multiple updates for each quest). It's different information each time you load (assuming you made progress), but not information overload. (This is pretty cheap.)
 
+![Deus Ex: HR's loading screens](https://github.com/idbrii/notes/assets/43559/69fe540b-c2d3-47da-b303-6f9e877dd790)
+
 * [Arkham City uses screen shots](https://www.mobygames.com/images/shots/l/573259-batman-arkham-city-windows-screenshot-typical-loading-screen.jpg) on the loading screen to lay out objectives or summarize recent plot points.
+
+![screen shots on Arkham City loading screen](https://github.com/idbrii/notes/assets/43559/a2018b0e-db13-4c7f-b847-f477f25bc1bd)
 
 * [Dishonored 2's Travel Log](https://miro.medium.com/max/2000/1*qJT35zAc8KSl4z16AKpv7g.png) documents the player's journey with notes and photographs. This journal [update after each mission](https://dishonored.fandom.com/wiki/Travel_Log_(Dishonored_2)). Dishonored 2 also features a pinboard connecting the characters/locations to give the player some spatial overview of what’s progressing in the world.
 
+![Dishonored 2's Travel Log](https://github.com/idbrii/notes/assets/43559/b7214849-7f9a-4b75-9228-2865b09a9929)
+
 * Persona 5 has a few methods: a [persistent countdown timer in the top right](https://youtu.be/XZEkg_r5PDw?t=264) to highlight your deadlines, frequently mention objectives in dialogue, show snippets of conversations and tweets (usually related to the objective), dungeon save points trigger companions to talk about the next dungeon objective. 
+
+![persistent countdown timer in the top right](https://github.com/idbrii/notes/assets/43559/847a0849-f83d-4298-8ae7-0ccf98da435f)
 <!-- [The UI Design of Persona 5](https://jiaxinwen.wordpress.com/2017/04/27/the-ui-design-of-persona-5/) seems to be a good breakdown, but doesn't highlight any of these features. -->
 
 # Potential Solutions
