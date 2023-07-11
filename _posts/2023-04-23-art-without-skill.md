@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Add Art Without Having Art Skills
-categories: [code, gamedev]
+categories: [visuals, gamedev]
 
 ---
 

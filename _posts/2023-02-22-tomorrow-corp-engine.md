@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Tomorrow Corporation's engine: time travel, reverse stepping with data breakpoints, scm integration
+title: Time travel, reverse stepping with data breakpoints, scm integration in Tomorrow Corporation's engine
 categories: [code, gamedev]
 
 ---
 
-[Their engine demonstration video](https://www.youtube.com/watch?v=72y2EC5fkcE).
+[Tomorrow Corporation demonstrated their engine features](https://www.youtube.com/watch?v=72y2EC5fkcE) in a video that I found remarkable.
 
 I've never seen a custom engine that impressed me so much. They've built a whole tech stack so all parts are tightly integrated:
 
