@@ -11,9 +11,11 @@ performance. Or reminders for myself.
 
 ## DOP
 
-Watch [CppCon 2014: Mike Acton "Data-Oriented Design and C++"](https://www.youtube.com/watch?v=rX0ItVEVjHc), because it explains the motivation of why to do DOP. The speaker, Mike Acton, is now working on ECS at Unity. You can also read [his code review of Ogre](https://www.bounceapp.com/116294) and the Ogre team's [very reasonable response](http://www.yosoygames.com.ar/wp/2013/11/on-mike-actons-review-of-ogrenode-cpp/).
+Watch [CppCon 2014: Mike Acton "Data-Oriented Design and C++"](https://www.youtube.com/watch?v=rX0ItVEVjHc) ([slides](https://neil3d.github.io/assets/img/ecs/DOD-Cpp.pdf)), because it explains the motivation for Data-Oriented Processing. The speaker, Mike Acton, was engine director at Insomniac and later a major driver of [ECS](https://en.wikipedia.org/wiki/Entity_component_system)/[DOTS](https://unity.com/dots) at Unity. You can also read [his code review of Ogre](https://www.bounceapp.com/116294) and the Ogre team's [very reasonable response](http://www.yosoygames.com.ar/wp/2013/11/on-mike-actons-review-of-ogrenode-cpp/).
 
-If all of those are too long, then his [Typical C++ Bullshit](https://macton.smugmug.com/Other/2008-07-15-by-Eye-Fi/n-xmKDH/i-BrHWXdJ) is a quick primer using a specific example for how iterating objects is bad.
+See also Andreas Fredriksson's [Optimizable Code](https://deplinenoise.wordpress.com/2013/12/28/optimizable-code/) article that Mike Acton discusses in that DOD talk.
+
+If all of those are too long, then his [Typical C++ Bullshit](https://macton.smugmug.com/Other/2008-07-15-by-Eye-Fi/n-xmKDH/i-BrHWXdJ) (now offline [even on wayback](http://web.archive.org/web/20130919114604/http://macton.smugmug.com/gallery/8936708_T6zQX#!p=4&n=15)) is a quick primer using a specific example for how iterating objects is bad.
 
 ## SOA vs AOS
 
