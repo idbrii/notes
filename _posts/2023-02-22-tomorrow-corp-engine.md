@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Time travel, reverse stepping with data breakpoints, scm integration in Tomorrow Corporation's engine
-categories: [code, gamedev]
+title: Time travel, reverse stepping with data breakpoints, scm integration in Tomorrow Corporation's engine (Talk)
+categories: [code, gamedev, techtalk]
 
 ---
 
