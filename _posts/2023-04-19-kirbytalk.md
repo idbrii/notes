@@ -5,10 +5,10 @@ categories: [gamedev, techtalk]
 
 ---
 
-[Kirby and the Forgotten Land designers discuss how they brought
-traditional Kirby gameplay into a 3D
-world](https://www.youtube.com/watch?v=cWdt07ncRxU). Kamiyama's section of this
-talk was great. Here's some major points with timestamps.
+[The Many Dimensions of Kirby](https://www.youtube.com/watch?v=cWdt07ncRxU) is
+a GDC 2023 talk where *Kirby and the Forgotten Land*'s designers discuss how
+they brought traditional Kirby gameplay into a 3D world. Kamiyama's section of
+this talk was great. Here's some major points with timestamps.
 
 A main point of the talk was designing for anyone. Since they're making a 3D game, many issues arise from how to make things intuitive in the camera angles and movement freedom that 3D brings.
 
