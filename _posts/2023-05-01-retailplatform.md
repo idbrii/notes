@@ -18,48 +18,51 @@ There are a few ways you can go about this abstraction in C-like languages:
 
 (1) is the most obvious:
 
-    // retailplatform.h
-    class RetailPlatform { ...api functions in here... };
+```cpp
+// retailplatform.h
+class RetailPlatform { ...api functions in here... };
 
-    // steamplatform.h
-    #ifdef STEAM
-    class SteamPlatform : public RetailPlatform { ...api functions in here... }
-    typedef SteamPlatform ActualPlatform;
-    #endif
+// steamplatform.h
+#ifdef STEAM
+class SteamPlatform : public RetailPlatform { ...api functions in here... }
+typedef SteamPlatform ActualPlatform;
+#endif
 
-    // xboxplatform.h
-    #ifdef XBOX
-    class XboxPlatform : public RetailPlatform { ...api functions in here... }
-    typedef XboxPlatform ActualPlatform;
-    #endif
-    ...
+// xboxplatform.h
+#ifdef XBOX
+class XboxPlatform : public RetailPlatform { ...api functions in here... }
+typedef XboxPlatform ActualPlatform;
+#endif
+...
 
-    RetailPlatform* ThePlatform = new ActualPlatform();
-
+RetailPlatform* ThePlatform = new ActualPlatform();
+```
 
 
 (2) is a bit weird, but because only one platform API will be defined at a
 time, we can avoid duplicating function declarations in RetailPlatform and
 using vtables:
 
-    // steamplatform.h
-    #ifdef STEAM
-    class SteamPlatform { ...api functions in here... };
-    #endif
-    ...
+```cpp
+// steamplatform.h
+#ifdef STEAM
+class SteamPlatform { ...api functions in here... };
+#endif
+...
 
-    class RetailPlatform : public
-    #ifdef STEAM
-        SteamPlatform
-    #elif XBOX
-        XboxPlatform
-    #else
-        // a fallback with mostly empty functions
-        StubPlatform
-    #endif
-    {}; // empty!
+class RetailPlatform : public
+#ifdef STEAM
+    SteamPlatform
+#elif XBOX
+    XboxPlatform
+#else
+    // a fallback with mostly empty functions
+    StubPlatform
+#endif
+{}; // empty!
 
-    RetailPlatform* ThePlatform = new RetailPlatform();
+RetailPlatform* ThePlatform = new RetailPlatform();
+```
 
 I like this method also because it's the easiest way to have a fallback else
 case for a Stub. Having a Stub version of your abstraction is useful for
@@ -74,17 +77,19 @@ unnecessary.
 (3) feels a bit gross to me since the name isn't specific, but it avoids
 needing a typedef or ifdef'd creation:
 
-    // steamplatform.h
-    #ifdef STEAM
-    class RetailPlatform { ...api functions in here... };
-    #endif
-    // xboxplatform.h
-    #ifdef XBOX
-    class RetailPlatform { ...api functions in here... };
-    #endif
-    ...
+```cpp
+// steamplatform.h
+#ifdef STEAM
+class RetailPlatform { ...api functions in here... };
+#endif
+// xboxplatform.h
+#ifdef XBOX
+class RetailPlatform { ...api functions in here... };
+#endif
+...
 
-    RetailPlatform* ThePlatform = new RetailPlatform();
+RetailPlatform* ThePlatform = new RetailPlatform();
+```
 
 
 You might look at this and say, "what about
